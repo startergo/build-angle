@@ -28,7 +28,7 @@ DEPS_TO_REMOVE = [
     # Note: Keep vulkan-deps, glslang, vulkan-loader for Vulkan backend
     # 'third_party/vulkan-deps',
     # 'third_party/glslang',
-    'third_party/lunarg-vulkantools',
+    # 'third_party/lunarg-vulkantools',
     'third_party/spirv-cross',
     # 'third_party/vulkan-loader',
     # 'third_party/vulkan-tools',
