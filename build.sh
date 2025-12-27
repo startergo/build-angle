@@ -103,12 +103,8 @@ cd ..
 
 cd angle
 
-TARGET_CPU="$ARCH"
-if [ "$ARCH" = "x64" ]; then
-  TARGET_CPU="x86_64"
-fi
-
-gn gen out/"$ARCH" --args="target_cpu=\"$TARGET_CPU\" angle_build_all=false is_debug=false angle_has_frame_capture=false angle_enable_gl=false angle_enable_vulkan=true angle_enable_wgpu=false angle_enable_metal=true angle_enable_null=false angle_enable_abseil=false use_siso=false install_prefix=\"../angle-$ARCH\"" || exit 1
+# Use ARCH directly - ANGLE's angle.gni only accepts x64 and arm64 as target_cpu values
+gn gen out/"$ARCH" --args="target_cpu=\"$ARCH\" angle_build_all=false is_debug=false angle_has_frame_capture=false angle_enable_gl=false angle_enable_vulkan=true angle_enable_wgpu=false angle_enable_metal=true angle_enable_null=false angle_enable_abseil=false use_siso=false install_prefix=\"../angle-$ARCH\"" || exit 1
 autoninja --offline -C out/"$ARCH" libEGL libGLESv2 libGLESv1_CM install_angle || exit 1
 
 cd ..
